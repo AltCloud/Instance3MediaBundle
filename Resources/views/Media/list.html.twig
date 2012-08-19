@@ -1,0 +1,7 @@
+{% extends tpl %}
+
+{% block content %}
+	{% include "ACInst3MediaBundle:Media:listPartial.html.twig" with {'medias': medias } %}
+	{# include "ACInst3MediaBundle:Media:matrixPartial.html.twig" with {'medias': medias } #}
+	{# include "ACInst3MediaBundle:Media:accordionPartial.html.twig" with {'medias': medias } #}
+{% endblock %}

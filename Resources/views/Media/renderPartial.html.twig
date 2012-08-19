@@ -1,0 +1,14 @@
+<h2>{{ media.title }}</h2>
+
+{% if displayoptions == false %}
+	{% set displayoptions = {'formatwidth': 600} %}
+{% endif %}
+
+{% include "ACInst3MediaBundle:Media:displayFormat.html.twig" with {'media': media, 'displayoptions': displayoptions} %}
+
+<p>
+	 {{ media.datetime|date("d - m - Y") }}
+</p>
+<p>
+	<b>{{ media.description }}</b>
+</p>

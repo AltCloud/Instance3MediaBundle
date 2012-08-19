@@ -1,0 +1,3 @@
+<img src="{{ mediaparams.imgsrc }}"
+{% if formatrel %}rel="{{ formatrel }}"{% endif %} {% if formatalt %}alt="{{ formatalt }}"{% endif %} {% if formatalign %}align="{{ formatalign }}"{% endif %} {% if formatheight %}height="{{ formatheight }}"{% endif %} {% if formatwidth %}width="{{ formatwidth }}"{% endif %} 
+style="{% if formatheight %}height: {{ formatheight }}px;{% endif %} {% if formatwidth %}width: {{ formatwidth }}px;{% endif %}{% if formatmaxheight %}max-height: {{ formatmaxheight }}px;{% endif %} {% if formatmaxwidth %}max-width: {{ formatmaxwidth }}px;{% endif %}" />

@@ -1,0 +1,16 @@
+{% if displayoptions.linkmask is defined %}
+	{% set linkmask = displayoptions.linkmask %}
+{% else %}
+	{% set linkmask = path('media_render', { 'id': 'PLCHLDR' }) %}
+{% endif %}
+
+<table class="records_list">
+    <tbody>
+    {% for entity in medias %}
+        <tr>
+            <td><a href="{{ linkmask|replace({'PLCHLDR': entity.id}) }}">{{ entity.title }}</a></td>
+            <td>{{ entity.datetime|date("d - m - Y") }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

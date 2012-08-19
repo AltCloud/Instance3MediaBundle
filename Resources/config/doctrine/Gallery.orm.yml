@@ -1,0 +1,25 @@
+AltCloud\Instance3MediaBundle\Entity\Gallery:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: 255
+    description:
+      type: text
+      nullable: true
+    datetime:
+      type: datetimetz
+  lifecycleCallbacks: {  }
+  oneToMany:
+    media:
+      targetEntity: Media
+      mappedBy: gallery
+  oneToOne:
+    cover:
+      targetEntity: Media

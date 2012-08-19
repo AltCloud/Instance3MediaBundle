@@ -1,0 +1,25 @@
+AltCloud\Instance3MediaBundle\Entity\Format:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    format_type:
+      type: string
+      length: '32'
+    media_type:
+      type: string
+      length: '32'
+    media_params:
+      type: array
+  lifecycleCallbacks: {  }
+  manyToOne:
+    media:
+      targetEntity: Media
+      inversedBy: format
+      joinColumn:
+        name: media_id
+        referencedColumnName: id

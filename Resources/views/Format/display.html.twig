@@ -1,0 +1,56 @@
+{# Check for Set Sizes #}
+{% if displayoptions.formatwidth is defined %}
+	{% set formatwidth = displayoptions.formatwidth %}	
+{% else %}
+	{% set formatwidth = false %}	
+{% endif %}
+
+{% if displayoptions.formatheight is defined %}
+	{% set formatheight = displayoptions.formatheight %}	
+{% else %}
+	{% set formatheight = false %}	
+{% endif %}
+
+{# Check for Max Sizes #}
+{% if displayoptions.formatmaxwidth is defined %}
+	{% set formatmaxwidth = displayoptions.formatmaxwidth %}	
+{% else %}
+	{% set formatmaxwidth = false %}	
+{% endif %}
+
+{% if displayoptions.formatmaxheight is defined %}
+	{% set formatmaxheight = displayoptions.formatmaxheight %}	
+{% else %}
+	{% set formatmaxheight = false %}	
+{% endif %}
+
+{# Check for Align #}
+{% if displayoptions.formatalign is defined %}
+	{% set formatalign = displayoptions.formatalign %}	
+{% else %}
+	{% set formatalign = false %}	
+{% endif %}
+
+{# Check for Rels &  Alts #}
+{% if displayoptions.formatrel is defined %}
+	{% set formatrel = displayoptions.formatrel %}	
+{% else %}
+	{% set formatrel = false %}	
+{% endif %}
+
+{% if displayoptions.formatalt is defined %}
+	{% set formatalt = displayoptions.formatalt %}	
+{% else %}
+	{% set formatalt = false %}	
+{% endif %}
+
+
+
+{% set mediaparams = format.mediaparams|unserialize %}
+{% set mediatype = format.mediatype %}
+
+{% if mediatype == "youtube" %}
+	{% include "ACInst3MediaBundle:Format:displayYoutube.html.twig" %}
+{% elseif mediatype == "image" %}
+	{% include "ACInst3MediaBundle:Format:displayImage.html.twig" %}
+{% endif %}

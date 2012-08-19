@@ -1,0 +1,30 @@
+admin_media:
+    pattern:  /
+    defaults: { _controller: "ACInst3MediaBundle:Media:index" }
+
+admin_media_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACInst3MediaBundle:Media:show" }
+
+admin_media_new:
+    pattern:  /new
+    defaults: { _controller: "ACInst3MediaBundle:Media:new" }
+
+admin_media_create:
+    pattern:  /create
+    defaults: { _controller: "ACInst3MediaBundle:Media:create" }
+    requirements: { _method: post }
+
+admin_media_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACInst3MediaBundle:Media:edit" }
+
+admin_media_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACInst3MediaBundle:Media:update" }
+    requirements: { _method: post }
+
+admin_media_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACInst3MediaBundle:Media:delete" }
+    requirements: { _method: post }

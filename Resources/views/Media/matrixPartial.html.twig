@@ -1,0 +1,67 @@
+<table class="mediamatrix">
+
+	{# this determines how many items are displayed per row #}
+	{% if displayoptions.rowmax is defined %}
+		{% set rowmax = displayoptions.rowmax %}
+	{% else %}
+		{% set rowmax = 3 %} 
+	{% endif %}	
+	
+	{% if displayoptions.showtitle is defined %}	
+		{% set showtitle 		= displayoptions.showtitle %}
+	{% else %}
+		{% set showtitle 		= false %}
+	{% endif %}
+	{% if displayoptions.linktitle is defined %}	
+		{% set linktitle 		= displayoptions.linktitle %}
+	{% else %}
+		{% set linktitle 		= false %}
+	{% endif %}
+
+	{% if displayoptions.showdate is defined %}	
+		{% set showdate 		= displayoptions.showdate %}
+	{% else %}
+		{% set showdate 		= false %}
+	{% endif %}
+	
+	{# set the row item numbering to start position, 0 #}
+	{% set rownum = 0 %}
+	
+	{# Should a linkmask be used? #}
+	{% if displayoptions.linkmask is defined %} 
+		{% set linkmask = displayoptions.linkmask %} 
+	{% else %} 
+		{% set linkmask = path('media_render', { 'id': 'PLCHLDR' }) %}
+	{% endif %}
+
+	{# Set Display Options for format display #}
+	{% if displayoptions.formatoptions is defined %}
+		{% set formatDispOpts = displayoptions.formatoptions %}
+	{% else %}
+		{% set formatDispOpts = {'formatmaxwidth': 190, 'formatmaxheight': 150} %}
+	{% endif %}	
+
+	<tr>
+    {% for entity in medias %}
+		{% if rownum == rowmax %}
+			{% set rownum = 0 %}
+		</tr>
+		<tr>
+		{% endif %}
+		
+            <td class="tile">
+            
+			{% set dispformat = entity.thumbnail %}
+			<p>{% include "ACInst3MediaBundle:Format:display.html.twig" with {'format': dispformat, 'displayoptions': formatDispOpts} %}</p>
+			
+			{# Show some metadata + link #}
+            {% if showtitle %}<p>
+            	{% if linktitle %}<a href="{{ linkmask|replace({'PLCHLDR': entity.id}) }}" class="title"> {% endif %} {{ entity.title }} {% if linktitle %}</a>{% endif %}
+            </p>{% endif %}
+            {% if showdate %}<p>{{ entity.datetime|date("d - m - Y") }}</p>{% endif %}
+            </td>
+            
+		{% set rownum = rownum + 1 %}
+    {% endfor %}
+    </tr>
+</table>

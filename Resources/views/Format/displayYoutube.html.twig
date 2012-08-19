@@ -1,0 +1,9 @@
+<object style="{% if formatheight %}height: {{ formatheight }}px;{% endif %} {% if formatwidth %}width: {{ formatwidth }}px;{% endif %}{% if formatmaxheight %}height: {{ formatmaxheight }}px;{% endif %} {% if formatmaxwidth %}width: {{ formatmaxwidth }}px;{% endif %}">
+
+	<param name="movie" value="{{ mediaparams.youtubeurl }}?version=3&feature=player_detailpage">
+	<param name="allowFullScreen" value="true">
+	<param name="allowScriptAccess" value="always">
+
+	<embed src="http://www.youtube.com/v/G-pr9rz4cB4?version=3&feature=player_detailpage" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" {% if formatheight %}height="{{ formatheight }}"{% endif %} {% if formatwidth %}width="{{ formatwidth }}"{% endif %}>
+
+</object>

@@ -1,0 +1,47 @@
+{% extends 'ACInst3Bundle::admin_layout.html.twig' %}
+
+{% block content_in %}
+<h1>Format list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Media</th>
+            <th>Format_type</th>
+            <th>Media_type</th>
+            <th>Media_params</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admin_format_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.media.title|title }}</td>
+            <td>{{ entity.formattype }}</td>
+            <td>{{ entity.mediatype }}</td>
+            <td>{{ entity.mediaparams }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_format_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_format_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('admin_format_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %}

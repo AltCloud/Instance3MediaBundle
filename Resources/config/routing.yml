@@ -1,0 +1,15 @@
+ACInst3MediaBundle_admin_media:
+    resource: "@ACInst3MediaBundle/Resources/config/routing/media.yml"
+    prefix:   /admin/media
+
+ACInst3MediaBundle_admin_gallery:
+    resource: "@ACInst3MediaBundle/Resources/config/routing/gallery.yml"
+    prefix:   /admin/gallery
+
+ACInst3MediaBundle_admin_format:
+    resource: "@ACInst3MediaBundle/Resources/config/routing/format.yml"
+    prefix:   /admin/format
+    
+media_render:
+    pattern:  /media/{id}
+    defaults: { _controller: "ACInst3MediaBundle:Media:render" }

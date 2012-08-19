@@ -1,0 +1,6 @@
+{% extends tpl %}
+
+{% block content_in %}
+	{% render "ACInst3MediaBundle:Gallery:renderPartial" with {'id': gallery.id, 'displayoptions': displayoptions} %}
+	{% render "ACInst3MediaBundle:Media:matrixPartial" with {'gallery': gallery.id, 'displayoptions': displayoptions} %}
+{% endblock %}

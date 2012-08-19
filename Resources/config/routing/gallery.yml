@@ -1,0 +1,30 @@
+admin_gallery:
+    pattern:  /
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:index" }
+
+admin_gallery_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:show" }
+
+admin_gallery_new:
+    pattern:  /new
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:new" }
+
+admin_gallery_create:
+    pattern:  /create
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:create" }
+    requirements: { _method: post }
+
+admin_gallery_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:edit" }
+
+admin_gallery_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:update" }
+    requirements: { _method: post }
+
+admin_gallery_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACInst3MediaBundle:Gallery:delete" }
+    requirements: { _method: post }

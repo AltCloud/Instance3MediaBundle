@@ -1,0 +1,30 @@
+admin_format:
+    pattern:  /
+    defaults: { _controller: "ACInst3MediaBundle:Format:index" }
+
+admin_format_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACInst3MediaBundle:Format:show" }
+
+admin_format_new:
+    pattern:  /new
+    defaults: { _controller: "ACInst3MediaBundle:Format:new" }
+
+admin_format_create:
+    pattern:  /create
+    defaults: { _controller: "ACInst3MediaBundle:Format:create" }
+    requirements: { _method: post }
+
+admin_format_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACInst3MediaBundle:Format:edit" }
+
+admin_format_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACInst3MediaBundle:Format:update" }
+    requirements: { _method: post }
+
+admin_format_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACInst3MediaBundle:Format:delete" }
+    requirements: { _method: post }

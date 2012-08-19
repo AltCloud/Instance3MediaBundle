@@ -1,0 +1,5 @@
+{% extends tpl %}
+
+{% block content_in %}
+	{% include "ACInst3MediaBundle:Media:renderPartial.html.twig" with {'media': media, 'displayoptions' : displayoptions} %}
+{% endblock %}

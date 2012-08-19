@@ -1,0 +1,55 @@
+{% if displayoptions.accid is defined %}
+	{% set accid = displayoptions.accid %}	
+{% else %}
+	{% set accid = 'accordion' %}	
+{% endif %}
+
+{% if displayoptions.acctimeout is defined %}
+	{% set timeout = displayoptions.acctimeout %}	
+{% else %}
+	{% set timeout = 3000 %}	
+{% endif %}
+
+{% if displayoptions.accslidewidth is defined %}
+	{% set slidewidth = displayoptions.accslidewidth %}
+{% else %}
+	{% set slidewidth = 450 %}
+{% endif %}
+
+{% if displayoptions.accwidth is defined %}
+	{% set width = displayoptions.accwidth %}
+{% else %}
+	{% set width = 600 %}
+{% endif %}
+
+{% if displayoptions.accheight is defined %}
+	{% set height = displayoptions.accheight %}
+{% else %}
+	{% set height = 250 %}
+{% endif %}
+
+<ul class="media_accordion" id="{{ accid }}">
+
+{# Set Display Options to be used by the format renderer #}
+{% set displayoptions = {'formatwidth': slidewidth} %}
+
+    {% for entity in medias %}
+            <li>
+			{% set dispformat = entity.thumbnail %}
+			
+			{% include "ACInst3MediaBundle:Format:display.html.twig" with {'format': dispformat, 'displayoptions': displayoptions} %}
+
+            </li>
+    {% endfor %}
+</ul>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery("#{{ accid }}").zAccordion({ 
+		easing: "easeOutBounce",
+		timeout: {{ timeout }},
+		slideWidth: {{ slidewidth }},
+		width: {{ width }},
+		height: {{ height }}
+	});
+});
+</script>
