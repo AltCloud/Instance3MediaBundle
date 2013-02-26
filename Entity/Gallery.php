@@ -153,4 +153,14 @@ class Gallery
     {
         return $this->media;
     }
+
+    /**
+     * Remove media
+     *
+     * @param \AltCloud\Instance3MediaBundle\Entity\Media $media
+     */
+    public function removeMedia(\AltCloud\Instance3MediaBundle\Entity\Media $media)
+    {
+        $this->media->removeElement($media);
+    }
 }

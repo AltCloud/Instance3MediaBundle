@@ -192,4 +192,14 @@ class Media
     {
         return $this->gallery;
     }
+
+    /**
+     * Remove formats
+     *
+     * @param \AltCloud\Instance3MediaBundle\Entity\Format $formats
+     */
+    public function removeFormat(\AltCloud\Instance3MediaBundle\Entity\Format $formats)
+    {
+        $this->formats->removeElement($formats);
+    }
 }
